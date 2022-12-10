@@ -6,12 +6,13 @@ def inicio(request):
     }
     return render(request, template_name, contexto)
 
-"""def iniciar_sesion(request):
-    if 'iniciar' in request.GET:
-        username= request.GET.get("username")
+def iniciar_sesion(request):
+    if request.method == "POST": 
+        data = request.POST.get('boton')
+        print(data)
     contexto = {
     }
-    return render(request, 'iniciar_sesion.html', contexto)"""
+    return render(request, 'iniciar_sesion.html', contexto)
 def registrarse(request):
     template_name = 'registrarse.html'
     contexto = {
