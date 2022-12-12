@@ -26,4 +26,5 @@ urlpatterns = [
     path('registrarse/',views.registrarse, name="registrarse"),
     path('comentar/',views.comentar, name="comentar"),
     path('informacion/',views.informacion, name="informacion"),
+    path('publicacion/',views.publicacion, name="publicacion"),
 ]

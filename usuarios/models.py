@@ -3,5 +3,6 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class usuario(AbstractUser):
-    es_administrador: models.BooleanField(default = False)
+    nombre = models.CharField(max_length=200,null=True)
+    email = models.CharField(max_length=200,null=True)
     

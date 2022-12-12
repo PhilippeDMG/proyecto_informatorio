@@ -1,6 +1,10 @@
 from django.shortcuts import render
 
+from django.contrib.auth.forms import UserCreationForm
+
+
 def inicio(request):
+    
     template_name = 'inicio.html'
     contexto = {
     }
@@ -14,9 +18,14 @@ def iniciar_sesion(request):
     }
     return render(request, 'iniciar_sesion.html', contexto)
 def registrarse(request):
+    form = UserCreationForm()
     template_name = 'registrarse.html'
-    contexto = {
-    }
+    if request.method == "POST": 
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save() 
+
+    contexto = {'form':form}
     return render(request, template_name, contexto)
 def comentar(request):
     template_name = 'comentar.html'
@@ -29,7 +38,8 @@ def informacion(request):
     }
     return render(request, template_name, contexto)
 
-    
-
-
-      
+def publicacion(request):
+    template_name = 'publicacion.html'
+    contexto = {
+    }
+    return render(request, template_name, contexto)
