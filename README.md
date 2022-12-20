@@ -10,7 +10,10 @@ INTEGRANTES:
     Mesa Ruth
     Peralta Federico
 
-
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
+Instalar librerías necesarias con el siguiente  comando: 
+pip install -r requirements.txt
+▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 Crear un archivo local.py al mismo nivel que base.py en settings con la siguiente estructura:
 from .base import *
 
