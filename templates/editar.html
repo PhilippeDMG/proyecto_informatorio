@@ -13,7 +13,7 @@
 
 {% load static %}
 {% include "navbar.html" %}
-    <form method="POST">{% csrf_token %}
+    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
         {{form.as_p}}
         <p><button class="w-100 btn btn-lg btn-primary" type="submit" name="btn_ingresar">GUARDAR</button></p>
         <p><a href="{% url 'publicacion:listado' %}" class="w-100 btn btn-lg btn-primary">Cancelar</a></p>
