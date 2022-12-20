@@ -7,17 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Tribute Page" />
     <title>Registrarse</title>
-    <link rel="stylesheet" href="{% static 'inicio.css' %}" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
     {% include "navbar.html" %}
     <main id="main">
       <h1 clasS="text-center">Registrarse</h1>
-      <form method="POST" action=""> {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" name="Create User">
-      </form>
+      <div class="card">
+        <div class="card-body">
+          <form method="POST" action=""> {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-primary">Crear</button>
+          </form>
+        </div>
+      </div>
+      
     </main>
   </body>
 </html>

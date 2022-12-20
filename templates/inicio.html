@@ -14,91 +14,40 @@
   <body>
 
     {% include "navbar.html" %}
-
+    <br>
     <div id="main-content" class="blog-page">
       <div class="container">
           <div class="row clearfix">
               <div class="col-lg-8 col-md-12 left-box">
-                  <div class="card single_post">
-                      <div class="body">
-                          <div class="img-post">
-                              <img class="d-block img-fluid" src="https://scontent.fcnq2-2.fna.fbcdn.net/v/t1.6435-9/176653442_159591506071978_2958053592346399250_n.jpg?stp=dst-jpg_p526x296&_nc_cat=110&ccb=1-7&_nc_sid=a26aad&_nc_ohc=R4oC-RKNpkIAX9CmQfk&_nc_ht=scontent.fcnq2-2.fna&oh=00_AfDdFUKFIPvxUjGKslMdDBeat1Om3klzHvNq7dF3EyWShA&oe=63BEEE5E" alt="First slide">
-                          </div>
-                          <h3>¡Ayúdanos a crear sonrisas!💕😁</h3>
-                          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
-                      </div>
-                      <div class="footer">
-                          <div class="actions">
-                              <a href="{% url 'publicacion'%}" class="btn btn-outline-secondary">Seguir leyendo</a>
-                          </div>
-                          <ul class="stats">
-                              <li><a href="javascript:void(0);">General</a></li>
-                              <li><a href="javascript:void(0);" class="fa fa-heart">28</a></li>
-                              <li><a href="javascript:void(0);" class="fa fa-comment">128</a></li>
-                          </ul>
-                      </div>
-                  </div>
-  
-                  <div class="card single_post">
-                      <div class="body">
-                          <div class="img-post">
-                              <img class="d-block img-fluid" src="https://via.placeholder.com/800x280/FFB6C1/000000" alt="">
-                          </div>
-                          <h3><a href="blog-details.html">All photographs are accurate</a></h3>
-                          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
-                      </div>
-                      <div class="footer">
-                          <div class="actions">
-                              <a href="javascript:void(0);" class="btn btn-outline-secondary">Continue Reading</a>
-                          </div>
-                          <ul class="stats">
-                              <li><a href="javascript:void(0);">General</a></li>
-                              <li><a href="javascript:void(0);" class="fa fa-heart">28</a></li>
-                              <li><a href="javascript:void(0);" class="fa fa-comment">128</a></li>
-                          </ul>
-                      </div>
-                  </div>
-  
-                  <div class="card single_post">
-                      <div class="body">
-                          <div class="img-post">
-                              <img class="d-block img-fluid" src="https://via.placeholder.com/800x280/FFB6C1/000000" alt="">
-                          </div>
-                          <h3><a href="blog-details.html">All photographs are accurate</a></h3>
-                          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
-                      </div>
-                      <div class="footer">
-                          <div class="actions">
-                              <a href="javascript:void(0);" class="btn btn-outline-secondary">Continue Reading</a>
-                          </div>
-                          <ul class="stats">
-                              <li><a href="javascript:void(0);">General</a></li>
-                              <li><a href="javascript:void(0);" class="fa fa-heart">28</a></li>
-                              <li><a href="javascript:void(0);" class="fa fa-comment">128</a></li>
-                          </ul>
-                      </div>
-                  </div>
-  
-                  <div class="card single_post">
-                      <div class="body">
-                          <div class="img-post">
-                              <img class="d-block img-fluid" src="https://via.placeholder.com/800x280/FFB6C1/000000" alt="">
-                          </div>
-                          <h3><a href="blog-details.html">All photographs are accurate</a></h3>
-                          <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal</p>
-                      </div>
-                      <div class="footer">
-                          <div class="actions">
-                              <a href="javascript:void(0);" class="btn btn-outline-secondary">Continue Reading</a>
-                          </div>
-                          <ul class="stats">
-                              <li><a href="javascript:void(0);">General</a></li>
-                              <li><a href="javascript:void(0);" class="fa fa-heart">28</a></li>
-                              <li><a href="javascript:void(0);" class="fa fa-comment">128</a></li>
-                          </ul>
-                      </div>
-                  </div>
-                                          
+
+                {% for publicacion in publicaciones %}
+                    <div class="card single_post">
+                    <div class="card-header">
+                        {{publicacion.fecha}}
+                    </div>
+                    <div class="body">
+                        <div class="img-post">
+                            {{publicacion.imagen}}
+                        </div>
+                        <h3>{{publicacion.titulo}}</h3>
+                        <p></p><!--Categorias-->
+                    </div>
+                    <div class="footer">
+                        <div class="actions">
+                            <a href="{% url 'publicacion:publicacion'%}" class="btn btn-outline-secondary">{{publicacion.detalle}}</a>
+                        </div>
+                        <ul class="stats">
+                            <li><a href="javascript:void(0);">General</a></li>
+                            <li><a href="javascript:void(0);" class="fa fa-heart">28</a></li>
+                            <li><a href="javascript:void(0);" class="fa fa-comment">128</a></li>
+                        </ul>
+                    </div>
+                    </div>
+                {% empty %}
+                    No hay usuarios registrados<!--Buscar alertas en bootstrap-->
+                {% endfor %}
+                  
+                    
                   <ul class="pagination pagination-primary">
                       <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
                       <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
