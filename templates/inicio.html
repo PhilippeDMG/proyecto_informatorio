@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="inicio" />
     <title>Inicio</title>
-    <link rel="stylesheet" href="{% static 'inicio.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-  <body>
+  <body id="color">
 
     {% include "navbar.html" %}
     <br>
@@ -34,123 +34,56 @@
                             {% endif %}
                         </div>
                         <h3>{{publicacion.titulo}}</h3>
-                        {% for categ in publicacion.categoria.all %}
-                            <span class="badge badge-info">{{categ.nombre}}</span>
-                        {% endfor %}
                     </div>
                     <div class="footer">
                         <div class="actions">
-                            <a href="{% url 'publicacion:publicacion'%}" class="btn btn-outline-secondary">{{publicacion.detalle}}</a>
+                            <a href="{% url 'publicacion:publicacion' publicacion.id %}" class="btn btn-outline-secondary">Leer más...</a>
                         </div>
                         <ul class="stats">
-                            <li><a href="javascript:void(0);">General</a></li>
+                            <li><a href="javascript:void(0);">{% for categ in publicacion.categoria.all %}
+                                <span class="badge badge-info">{{categ.nombre}}</span>
+                            {% endfor %}</a></li>
                             <li><a href="javascript:void(0);" class="fa fa-heart">28</a></li>
-                            <li><a href="javascript:void(0);" class="fa fa-comment">128</a></li>
+                            <li><a href="javascript:void(0);" class="fa fa-comment">{{publicacion.comentarios.count}}</a></li>
                         </ul>
                     </div>
                     </div>
                 {% empty %}
-                    No hay usuarios registrados<!--Buscar alertas en bootstrap-->
+                    No hay publicaciones para mostrar.<!--Buscar alertas en bootstrap-->
                 {% endfor %}
                   
                     
-                  <ul class="pagination pagination-primary">
-                      <li class="page-item"><a class="page-link" href="javascript:void(0);">Previous</a></li>
-                      <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
-                      <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
-                      <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                      <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
-                  </ul>                
+                {% include 'includes/paginado.html' %}               
               </div>
               <div class="col-lg-4 col-md-12 right-box">
                   <div class="card">
                       <div class="body search">
                           <div class="input-group m-b-0">
                               <div class="input-group-prepend">
-                                  <span class="input-group-text"><i class="fa fa-search"></i></span>
-                              </div>
-                              <input type="text" class="form-control" placeholder="Search...">                                    
+                                <form class="d-flex" role="search" method="get">
+                                    <input class="form-control me-2" type="search" placeholder="Buscar publicación" aria-label="Search" name="buscador">
+                                    <button class="btn btn-outline-info" type="submit">Buscar</button>
+                                </form>
+                              </div>                                  
                           </div>
+                          
                       </div>
                   </div>
                   <div class="card">
                       <div class="header">
-                          <h2>Categories Clouds</h2>
+                          <h2>Categorías</h2>
                       </div>
                       <div class="body widget">
                           <ul class="list-unstyled categories-clouds m-b-0">
-                              <li><a href="javascript:void(0);">eCommerce</a></li>
-                              <li><a href="javascript:void(0);">Microsoft Technologies</a></li>
-                              <li><a href="javascript:void(0);">Creative UX</a></li>
-                              <li><a href="javascript:void(0);">Wordpress</a></li>
-                              <li><a href="javascript:void(0);">Angular JS</a></li>
-                              <li><a href="javascript:void(0);">Enterprise Mobility</a></li>
-                              <li><a href="javascript:void(0);">Website Design</a></li>
-                              <li><a href="javascript:void(0);">HTML5</a></li>
-                              <li><a href="javascript:void(0);">Infographics</a></li>
-                              <li><a href="javascript:void(0);">Wordpress Development</a></li>
+                            {% for cat in categorias %}
+                              <li><a href="javascript:void(0);">{{cat.nombre}}</a></li>
+                            {% endfor %}
                           </ul>
-                      </div>
-                  </div>
-                  <div class="card">
-                      <div class="header">
-                          <h2>Popular Posts</h2>                        
-                      </div>
-                      <div class="body widget popular-post">
-                          <div class="row">
-                              <div class="col-lg-12">
-                                  <div class="single_post">
-                                      <p class="m-b-0">Apple Introduces Search Ads Basic</p>
-                                      <span>jun 22, 2018</span>
-                                      <div class="img-post">
-                                          <img src="https://via.placeholder.com/280x280/FFB6C1/000000" alt="Awesome Image">                                        
-                                      </div>                                            
-                                  </div>
-                                  <div class="single_post">
-                                      <p class="m-b-0">new rules, more cars, more races</p>
-                                      <span>jun 8, 2018</span>
-                                      <div class="img-post">
-                                          <img src="https://via.placeholder.com/280x280/FFB6C1/000000" alt="Awesome Image">                                            
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="card">
-                      <div class="header">
-                          <h2>Instagram Post</h2>
-                      </div>
-                      <div class="body widget">
-                          <ul class="list-unstyled instagram-plugin m-b-0">
-                              <li><a href="javascript:void(0);"><img src="https://via.placeholder.com/80x80/FFB6C1/000000" alt="image description"></a></li>
-                              <li><a href="javascript:void(0);"><img src="https://via.placeholder.com/80x80/FFB6C1/000000" alt="image description"></a></li>
-                              <li><a href="javascript:void(0);"><img src="https://via.placeholder.com/80x80/FFB6C1/000000" alt="image description"></a></li>
-                              <li><a href="javascript:void(0);"><img src="https://via.placeholder.com/80x80/FFB6C1/000000" alt="image description"></a></li>
-                              <li><a href="javascript:void(0);"><img src="https://via.placeholder.com/80x80/FFB6C1/000000" alt="image description"></a></li>
-                              <li><a href="javascript:void(0);"><img src="https://via.placeholder.com/80x80/FFB6C1/000000" alt="image description"></a></li>
-                              <li><a href="javascript:void(0);"><img src="https://via.placeholder.com/80x80/FFB6C1/000000" alt="image description"></a></li>
-                              <li><a href="javascript:void(0);"><img src="https://via.placeholder.com/80x80/FFB6C1/000000" alt="image description"></a></li>
-                              <li><a href="javascript:void(0);"><img src="https://via.placeholder.com/80x80/FFB6C1/000000" alt="image description"></a></li>
-                          </ul>
-                      </div>
-                  </div>
-                  <div class="card">
-                      <div class="header">
-                          <h2>Email Newsletter <small>Get our products/news earlier than others, let’s get in touch.</small></h2>
-                      </div>
-                      <div class="body widget newsletter">                        
-                          <div class="input-group">
-                              <input type="text" class="form-control" placeholder="Enter Email">
-                              <div class="input-group-append">
-                                  <span class="input-group-text"><i class="icon-paper-plane"></i></span>
-                              </div>
-                          </div>
                       </div>
                   </div>
               </div>
           </div>
-  
+        </div>
       </div>
     </div>
   </body>

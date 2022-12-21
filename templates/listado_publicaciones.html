@@ -20,13 +20,14 @@
     </form>
     <br>
     <a class="nav-link" href="{% url 'publicacion:agregar' %}"><button type="button" class="btn btn-success">Agregar publicación</button></a>
+    <a class="nav-link" href="{% url 'categorias:agregar_categoria' %}"><button type="button" class="btn btn-success">Agregar categoría</button></a>
     <br>
     <h2>Listado de publicaciones</h2>
     <ul class="list-group">
-        {% for publicacion in publicaciones %}
-            <li class="list-group-item">{{publicacion.titulo}}<a class="nav-link" href="{% url 'publicacion:editar' publicacion.id %}"><button type="button" class="btn btn-warning">Editar</button></a><a class="nav-link" href="{% url 'publicacion:eliminar' publicacion.id  %}"><button type="button" class="btn btn-danger">Eliminar</button></a></li>
-        {% endfor %}
-      </ul>
-      {% include 'includes/paginado.html' %}
+      {% for publicacion in publicaciones %}
+          <li class="list-group-item">{{publicacion.titulo}}<a class="nav-link" href="{% url 'publicacion:editar' publicacion.id %}"><button type="button" class="btn btn-warning">Editar</button></a><a class="nav-link" href="{% url 'publicacion:eliminar' publicacion.id  %}"><button type="button" class="btn btn-danger">Eliminar</button></a></li>
+      {% endfor %}
+    </ul>
+    {% include 'includes/paginado.html' %}
   </body>
 </html>

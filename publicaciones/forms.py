@@ -13,7 +13,7 @@ class PublicacionForm(forms.ModelForm):
 	class Meta:
 		model = Publicacion
 		fields= '__all__'
-"""
+
 		widgets = { 
 			"nombre": forms.TextInput(attrs={"class": "form-control" }),
 			"Body": forms.Textarea(attrs={"class": "form-control"}),
@@ -21,12 +21,13 @@ class PublicacionForm(forms.ModelForm):
 
 
 class NuevoComentario(forms.ModelForm):
-	
+	def init(self, args, **kwargs):
+		super().init(args, **kwargs)
+		self.fields['contenido'].widget.attrs.update({'rows': '3'})
 	class Meta:
 		model = Comentario
-		fields= ( "name", "body")
-		widgets = {
+		fields= ['contenido']
+		"""widgets = {
 			"name": forms.TextInput(attrs={"class": "col-sm-12"}),
 		    "body": forms.Textarea(attrs={"class": "col-sm-12"}),
-
 		}"""

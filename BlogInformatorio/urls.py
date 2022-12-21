@@ -22,7 +22,7 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.inicio, name="inicio"),
+    path('',views.inicio.as_view(), name="inicio"),
     
     path('comentar/',views.comentar, name="comentar"),
     path('informacion/',views.informacion, name="informacion"),
@@ -32,5 +32,6 @@ urlpatterns = [
     
     #Includes
     path('publicacion/', include('publicaciones.urls')),
-    path('usuarios/', include('users.urls'))
+    path('usuarios/', include('users.urls')),
+    path('categorias/',include('categorias.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
