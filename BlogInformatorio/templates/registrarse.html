@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="{% static 'css/registrarse.css' %}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    {% include "navbar.html" %}
+    <img src="{% static 'img/stacked-waves.png' %}">
+    <main>
+      <div class="card" id="main">
+        <div  class="card-title text-center"><h4>Registrarse</h4></div>
+        <div class="card-body text-center">
+          
+          
+          <form method="POST" action=""> {% csrf_token %}
+            {{ form.non_field_errors }}
+                <div class="margen">
+                    {{ form.first_name.errors }}
+                    <label for="{{ form.message.id_for_label }}">Nombre: </label>
+                    <br>
+                    {{ form.first_name }}
+                </div>
+                <div class="margen">
+                    {{ form.last_name.errors }}
+                    <label for="{{ form.message.id_for_label }}">Apellido:</label>
+                    <br>
+                    {{ form.last_name }}
+                </div>
+                <div class="margen">
+                  {{ form.username.errors }}
+                  <label for="{{ form.message.id_for_label }}">Nombre de usuario*:</label><br>
+                  {{ form.username }}
+                </div>
+                <div class="margen">
+                  {{ form.password1.errors }}
+                  <label for="{{ form.message.id_for_label }}">Contraseña**:</label><br>
+                  {{ form.password1 }}
+                </div>
+                <div class="margen">
+                  {{ form.password2.errors }}
+                  <label for="{{ form.message.id_for_label }}">Confirmar contraseña:</label><br>
+                  {{ form.password2 }}
+                </div>
+                <div class="margen">
+                  {{ form.email.errors }}
+                  <label for="{{ form.message.id_for_label }}">Email:</label><br>
+                  {{ form.email }}
+                </div>
+            <div class="text-center">
+              <br>
+            <p>*Su usuario no debe contener espacios.</p>
+            <p>**Su contraseña no debe ser solo números, debe contener al menos 8 carácteres, y no puede ser similar a sus otros datos ingresados.</p>
+            <button type="submit" class="btn btn-primary">Crear</button>
+          </div>
+          </form>
+        </div>
+      </div>
+      
+    </main>
+  </body>
+</html>
+    

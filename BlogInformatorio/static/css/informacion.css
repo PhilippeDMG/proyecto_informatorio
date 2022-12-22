@@ -1,0 +1,41 @@
+#color{
+    background-color: #c27ba0;
+    border-left: 0;
+    border-right: 0;
+    padding-bottom: 2rem;
+    margin-left: auto; 
+    margin-right: auto; 
+}
+#color:nth-of-type(1){
+    border-bottom: 0;
+}
+#color:nth-of-type(2){
+    border-bottom: 0;
+}
+#color:nth-of-type(3){
+    border-bottom: 0;
+}
+#strong-color{
+    background-color: #c27ba0;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+ul {
+    list-style-type: none;
+}
+.li{
+    margin-top: 2rem;
+}
+
+#footer{
+    margin-bottom: -2rem;
+}
+#a{
+    text-decoration: none
+}
+#a:hover{
+    color: black
+}

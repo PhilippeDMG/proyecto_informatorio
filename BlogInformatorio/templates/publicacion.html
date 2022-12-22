@@ -1,0 +1,98 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="inicio" />
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body id="color">
+
+    {% include "navbar.html" %}
+    <br>
+    <div id="main-content" class="blog-page">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-lg-8 col-md-12 left-box">
+
+                    <div class="card single_post">
+                        <div class="body">
+                            <div class="img-post">
+                                <img class="d-block img-fluid" src="{{publicacion.imagen.url}}"
+                                    alt="imagen de publicacion">
+                            </div>
+                            <h3>{{publicacion.titulo}}</h3>
+                            <p>{{publicacion.contenido}}</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="header">
+                            <h2>Comentarios {{comentarios.count}}</h2>
+                        </div>
+                        {% if not comentarios.all %}
+                            <p>No hay comentarios</p>
+                        {% else %}
+                        {% for comentario in comentarios.all %}
+                        <div class="body">
+                            <ul class="comment-reply list-unstyled">
+                                <li class="row clearfix">
+                                    <div class="icon-box col-md-2 col-4"><img class="img-fluid img-thumbnail"
+                                            src="{% static 'img/no_avatar.png' %}"
+                                            alt="Avatar"></div>
+                                    <div class="text-box col-md-10 col-8 p-l-0 p-r0">
+                                        <h5 class="m-b-0">{{comentario.usuario.last_name}}
+                                            {{comentario.usuario.first_name}}</h5>
+                                        <h6>{{comentario.contenido}}</h6>
+                                        <ul class="list-inline">
+                                            <li>{{comentario.fecha_agregado}}</li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div class="header text-center">
+                            <h2>Dejá un comentario</h2>
+                        </div>
+                        <div class="body text-center">
+                            <div class="comment-form text-center">
+                                <form class="row clearfix text-center">
+                                    {% include 'agregar_comentario.html' %}
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 right-box">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Categorías</h2>
+                        </div>
+                        <div class="body widget">
+                            <ul class="list-unstyled categories-clouds m-b-0">
+                                {% for cat in categorias %}
+                                <li><a href="{% url 'publicacion:filtro_categoria' cat.nombre %}">{{cat.nombre}}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

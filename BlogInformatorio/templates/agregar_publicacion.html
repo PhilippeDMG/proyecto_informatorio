@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio</title>
+    <link rel="stylesheet" href="{% static 'css/agregar_publicacion.css' %}" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body id="body">
+    {% include "navbar.html" %}
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+            <div class="card mr-3 ml-3" id="color">
+                <div class="card-header text-center">
+                    <h1>Agregar publicaciones</h1>
+                </div>
+                <div class="card-body text-center">
+                    <p class="card-text" id="p">
+                        {{ form.non_field_errors }}
+                        <div class="fieldWrapper">
+                            {{ form.titulo.errors }}
+                            <label for="{{ form.message.id_for_label }}">Título:</label>
+                            {{ form.titulo }}
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ form.contenido.errors }}
+                            <label for="{{ form.subject.id_for_label }}">Contenido:</label>
+                            {{ form.contenido }}
+                        </div>
+                        
+                        <div class="fieldWrapper">
+                            {{ form.categoria.errors }}
+                            <label for="{{ form.cc_myself.id_for_label }}">Categorias: </label>
+                            {{ form.categoria }}
+                        </div>
+                        <div class="fieldWrapper">
+                            {{ form.imagen.errors }}
+                            <label for="{{ form.cc_myself.id_for_label }}">Imagen: </label>
+                            {{ form.imagen }}
+                        </div>
+                    </p>
+                  <button type="submit" class="btn btn-secondary btn-block mb-4">Ingresar</button>
+                </div>
+              </div>
+            
+            
+            
+        </form>
+    </body>
+</html>

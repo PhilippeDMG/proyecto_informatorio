@@ -1,0 +1,16 @@
+
+{% if user.is_authenticated %}
+    <div class="form-group">
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+          {{ form.non_field_errors }}
+            {{ form.contenido.errors }}
+            {{ form.contenido }}
+          <button type="submit" class="btn btn-secondary btn-block mb-4">Subir</button>
+        </form>
+    </div>
+{% else %}
+  <div class="alert alert-danger text-center" role="alert">
+    <h1>Necesita tener una cuenta para comentar.</h1>
+  </div>
+  
+{% endif %}

@@ -1,0 +1,35 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/listado_publicaciones.css' %}" />
+    <title>Listado</title>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+    {% include "navbar.html" %}
+    <br>
+    <form class="d-flex" role="search" method="get">
+      <input class="form-control me-2" type="search" placeholder="Buscar publicacion" aria-label="Search" name="buscador">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <br>
+    <a class="btn btn-success" href="{% url 'publicacion:agregar' %}" role="button">Agregar publicación</a>
+    <a class="btn btn-success" href="{% url 'categorias:agregar_categoria' %}" role="button">Agregar categoría</a>
+    <br>
+    <h2>Listado de publicaciones</h2>
+    <ul class="list-group">
+      {% for publicacion in publicaciones %}
+      
+          <li class="list-group-item">{{publicacion.titulo}}   <a class="btn btn-warning" href="{% url 'publicacion:editar' publicacion.id %}" role="button">Editar</a>   <a class="btn btn-danger" href="{% url 'publicacion:eliminar' publicacion.id  %}" role="button">Eliminar</a></li>
+      {% endfor %}
+    </ul>
+    {% include 'includes/paginado.html' %}
+  </body>
+</html>

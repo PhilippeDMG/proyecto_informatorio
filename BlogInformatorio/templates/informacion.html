@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="{% static 'css/informacion.css' %}" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tribute Page" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Anton%7CBaskervville%7CRaleway&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
+    <title>Informacion</title>
+    <!--<link rel="stylesheet" href="{% static 'css.inicio.css' %}" />-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+  </head>
+  <body id="color">
+    {% include "navbar.html" %}
+    <section id="main">
+      <br>
+      <div class="card border-dark text-center" style="max-width: 50rem;" id="color">
+        <div class="card-header"><h1><strong>Sobre nosotros</strong></h1></div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <img src="{% static 'img/logo.png' %}" id="imagen">
+          </div>
+          <div class="col">
+            <h1 class="h1-responsive font-weight-bold mt-sm-5">Estamos trabajando para poder ayudar y contener a nuestros jóvenes y acompañar a sus familias </h1>
+          </div>
+        </div>
+      </div>
+      <div class="card border-dark text-center" style="max-width: 50rem;" id="color">
+        <div class="card-header"><h1><strong>Misión / Visión:</strong></h1></div>
+
+            <h1 class="h1-responsive font-weight-bold mt-sm-5">-	Llegar a proporcionar fuentes de trabajo con ingresos sustentables a los nuestros a través de gestiones y trabajo en conjunto con entidades gubernamentales.
+              <br>-	Alcance: Organización de alcance nacional e internacional.
+            </h1>
+      </div>
+
+      <div class="card border-dark text-center" style="max-width: 50rem;" id="color">
+        <div class="card-header"><h1><strong>Información institucional</strong></h1></div>
+        <br>
+        <div class="row">
+          <div class="col">
+            <div class="card" id="strong-color">
+              <h3>Autoridades:</h3>
+              <div class="text-left">
+              <ul>
+                <li class="li"><h6><strong>Presidente:</strong> Rivero Diego</h6></li>
+                <li class="li"><h6><strong>Tesorera:</strong> Morante Romina</h6></li>
+                <li class="li"><h6><strong>Secretaria:</strong> Sosa Yanina</h6></li>
+              </ul></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card" id="strong-color">
+              <h3>Objetivos organizacionales:</h3>
+              <div class="text-left">
+              <ul>
+                <li class="li"><h6>►Acompañar</h6></li>
+                <li class="li"><h6>►Contener y respaldar a nuestra comunidad</h6></li>
+                <li class="li"><h6>►Charlas</h6></li>
+                <li class="li"><h6>►Capacitaciones</h6></li>
+              </ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+    </section>
+    <br>
+  <footer class="text-center text-lg-start text-muted bg-light" id="footer">
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-4 d-flex align-items-center">
+          <STRONG><h1>CONTACTOS</h1></STRONG>
+        </div>
+        <div class="col-8">
+          <div class="row d-flex align-items-center">
+            <div class="col">
+              <p><i class="fas fa-home me-3"></i> Argentina, Chaco, Fontana, Mz 51 Pc 07 B 444 viv 13514</p>
+              <p><i class="fas fa-envelope me-3"></i> yanimendez00017@gmail.com</p>
+            </div>
+            <div class="col">
+              <p><i class="fas fa-phone me-3"></i> + 54 3624149053</p>
+              <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+              <p><i class="fab fa-facebook-f"></i> <a href="https://www.facebook.com/profile.php?id=100070747194751&mibextid=ZbWKwL" target="_blank" id="a"> Facebook</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+      
+
+  </body>
+</html>
