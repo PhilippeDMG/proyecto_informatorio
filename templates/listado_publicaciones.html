@@ -7,6 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="asd" />
+    <link rel="stylesheet" href="{% static 'css/listado_publicaciones.css' %}" />
     <title>Inicio</title>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -19,13 +20,14 @@
       <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
     <br>
-    <a class="nav-link" href="{% url 'publicacion:agregar' %}"><button type="button" class="btn btn-success">Agregar publicación</button></a>
-    <a class="nav-link" href="{% url 'categorias:agregar_categoria' %}"><button type="button" class="btn btn-success">Agregar categoría</button></a>
+    <a class="btn btn-success" href="{% url 'publicacion:agregar' %}" role="button">Agregar publicación</a>
+    <a class="btn btn-success" href="{% url 'categorias:agregar_categoria' %}" role="button">Agregar categoría</a>
     <br>
     <h2>Listado de publicaciones</h2>
     <ul class="list-group">
       {% for publicacion in publicaciones %}
-          <li class="list-group-item">{{publicacion.titulo}}<a class="nav-link" href="{% url 'publicacion:editar' publicacion.id %}"><button type="button" class="btn btn-warning">Editar</button></a><a class="nav-link" href="{% url 'publicacion:eliminar' publicacion.id  %}"><button type="button" class="btn btn-danger">Eliminar</button></a></li>
+      
+          <li class="list-group-item">{{publicacion.titulo}}<a class="btn btn-warning" href="{% url 'publicacion:editar' publicacion.id %}" role="button">Editar</a><a class="btn btn-danger" href="{% url 'publicacion:eliminar' publicacion.id  %}" role="button">Eliminar</a></li>
       {% endfor %}
     </ul>
     {% include 'includes/paginado.html' %}

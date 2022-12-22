@@ -76,7 +76,7 @@
                       <div class="body widget">
                           <ul class="list-unstyled categories-clouds m-b-0">
                             {% for cat in categorias %}
-                                <li><a href="{% url 'publicacion:filtro_categoria' cat.nombre %}">{{cat.nombre}}</a></li>
+                              <li><a href="{% url 'publicacion:filtro_categoria' cat.nombre%}">{{cat.nombre}}</a></li>
                             {% endfor %}
                           </ul>
                       </div>

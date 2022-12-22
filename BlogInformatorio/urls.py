@@ -33,5 +33,6 @@ urlpatterns = [
     #Includes
     path('publicacion/', include('publicaciones.urls')),
     path('usuarios/', include('users.urls')),
-    path('categorias/',include('categorias.urls'))
+    path('categorias/',include('categorias.urls')),
+    path('comentario/',include('comentarios.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

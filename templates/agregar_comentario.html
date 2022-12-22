@@ -1,31 +1,16 @@
-{% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="inicio" />
-    <title>Inicio</title>
-    <link rel="stylesheet" href="{% static 'inicio.css' %}" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-
-    {% include "navbar.html" %}
+{% if user.is_authenticated %}
+    <h1 class="text-center">Agregar comentario</h1>
     <br>
-    {% if user.is_authenticated %}
-        <h1 class="text-center">Agregar comentario</h1>
-        <br>
-        <div class="form-group" >
-            <form method="post" enctype="multipart/form-data">{% csrf_token %}
-                {{form.as_p}}
-                <button type="submit" class="btn btn-secondary btn-block mb-4">Subir</button>
-            </form>
-        </div>
-    {% else %}
-        <h1>Necesita tener una cuenta para comentar.</h1>
-    {% endif %}
-  </body>
-</html>
+    <div class="form-group" >
+        <form method="post" enctype="multipart/form-data">{% csrf_token %}
+            {{form.as_p}}
+            <button type="submit" class="btn btn-secondary btn-block mb-4">Subir</button>
+        </form>
+    </div>
+{% else %}
+  <div class="alert alert-danger text-center" role="alert">
+    <h1>Necesita tener una cuenta para comentar.</h1>
+  </div>
+  
+{% endif %}

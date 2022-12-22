@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'categorias',
     'users',
     'publicaciones',
+    'comentarios',
 ]
 AUTH_USER_MODEL = "users.usuario"
 MIDDLEWARE = [

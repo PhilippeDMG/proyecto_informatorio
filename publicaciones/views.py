@@ -1,6 +1,9 @@
-from django.shortcuts import render, redirect
-from publicaciones.models import Publicacion,Comentario
-from .forms import PublicacionForm,NuevoComentario
+from django.shortcuts import render
+from publicaciones.models import Publicacion
+from comentarios.models import Comentarios
+from categorias.models import Categoria
+from .forms import PublicacionForm
+from comentarios.forms import NuevoComentario
 from django.urls import reverse
 from django.views.generic import ListView
 from django.views.generic.edit import CreateView, UpdateView,DeleteView
@@ -42,18 +45,6 @@ class EliminarPublicacion(DeleteView):
     def get_success_url(self):
         return reverse("publicacion:listado")
     
-def AgregarComentario(request):
-	form = NuevoComentario(request.POST or None)
-	if form.is_valid():
-		form.save()
-		form = NuevoComentario()
-	
-	context={
-		'form': form,
-	}
-	return render(request,'agregar_comentario.html', context)
- 
-
 """
 def pub(request):
     pub = Publicacion.objects.get(all)
@@ -91,20 +82,50 @@ def ReadPost(request, id):
 	return render(request,'publicacion.html', context)
     
 """
-def publicacion(request,pk):
-    
+
+def publicaciones(request):
+    publicaciones = Publicacion.objects.get(all)
+    return render(publicaciones)
+
+def ExistePost(id):
+    for i in publicaciones:
+        if i.id == id:
+            return i
+    return None
+
+	
+
+def publicacion(request,id):
+    try:
+        publicacion   = ExistePost(id)
+    except Exception:
+        publicacion  = Publicacion.objects.get(id=id)
+
+    comentarios = Comentarios.objects.filter(publicacion=id)
     template_name = 'publicacion.html'
-    """SoloEstePost = None
-    if request.method == 'POST':
-        form_comentario = NuevoComentario(request.POST)
-        if comment_form.is_valid():
-            SoloEstePost = form_comentario.save(commit=False)
-            SoloEstePost. = p
-            SoloEstePost.save()
-			
-    else:
-        comment_form = NuevoComentario()"""
-    contexto = { 'publicacion': Publicacion.objects.get(pk = pk), 
+    form = NuevoComentario(request.POST or None)
+
+    if form.is_valid():
+        aux         =  form.save(commit=False)
+        aux.publicacion = publicacion
+        aux.usuario    = request.user
+        aux.save()
+        form        = NuevoComentario()
+    contexto = { 'publicacion': publicacion,
+                'comentarios': comentarios,
+                'form': form,
     }
     return render(request, template_name, contexto)
+
+
+def filtro_categoria(request,categoria):
+    filtro = Categoria.objects.filter(nombre=categoria)
+    publicacion    = Publicacion.objects.filter(categoria=filtro[0].id)
+    categorias  = Categoria.objects.all()
+    template_name='filtro_categoria.html'
+    context    = {
+        'publicaciones' : publicacion,
+        'categorias':categorias
+    }
+    return render(request,template_name,context)
 

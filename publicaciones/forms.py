@@ -1,5 +1,5 @@
 from django import forms
-from .models import Publicacion, Comentario
+from .models import Publicacion
 """from django.db.models.fields import CommaSeparatedIntegerField
 from django.forms import widgets
 from django.contrib.auth.forms import UserCreationForm
@@ -18,16 +18,3 @@ class PublicacionForm(forms.ModelForm):
 			"nombre": forms.TextInput(attrs={"class": "form-control" }),
 			"Body": forms.Textarea(attrs={"class": "form-control"}),
 		}
-
-
-class NuevoComentario(forms.ModelForm):
-	def init(self, args, **kwargs):
-		super().init(args, **kwargs)
-		self.fields['contenido'].widget.attrs.update({'rows': '3'})
-	class Meta:
-		model = Comentario
-		fields= ['contenido']
-		"""widgets = {
-			"name": forms.TextInput(attrs={"class": "col-sm-12"}),
-		    "body": forms.Textarea(attrs={"class": "col-sm-12"}),
-		}"""
