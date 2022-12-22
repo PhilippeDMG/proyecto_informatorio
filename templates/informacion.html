@@ -2,38 +2,48 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
+    <link rel="stylesheet" href="{% static 'css/informacion.css' %}" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Tribute Page" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Anton%7CBaskervville%7CRaleway&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    />
     <title>Informacion</title>
     <!--<link rel="stylesheet" href="{% static 'css.inicio.css' %}" />-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
   </head>
-  <body>
+  <body id="color">
     {% include "navbar.html" %}
-    <main id="main">
+    <section id="main">
+      <h1 class="text-center"><strong>Sobre nosotros</strong></h1>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <img src="{% static 'img/logo.png' %}" id="imagen">
+          </div>
+          <div class="col">
+            <h1 class="h1-responsive font-weight-bold mt-sm-5">Estamos trabajando para poder ayudar y contener a nuestros jóvenes y acompañar a sus familias </h1>
+          </div>
+        </div>
+      </div>
       
-      <div class="view" style="background-image: url('https://scontent.fcnq2-2.fna.fbcdn.net/v/t39.30808-6/233271524_117372793964293_8483550677728447294_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=t1O-G_vSqFEAX8D5i0L&_nc_ht=scontent.fcnq2-2.fna&oh=00_AfCEH73EoAZR6oHYQ66eqlVHIaAl_UepeVqkWkG-fLC6eQ&oe=63A84366'); background-repeat: no-repeat; background-size:37%; background-position:left left;">
-        <!-- Mask & flexbox options-->
-        <div class="mask rgba-gradient align-items-center">
+        <div class="align-items-center">
           <!-- Content -->
-          <h1 class="Text-align:left">Sobre nosotros</h1>
+          
           <div class="container">
             <!--Grid row-->
             <div class="row">
               <!--Grid column-->
               <div class="col-md-6 white-text text-center text-md-rigth mt-xl-5 mb-5 wow fadeInRigth" data-wow-delay="0.3s">
-                <h1 class="h1-responsive font-weight-bold mt-sm-5">Estamos trabajando para poder ayudar y contener a nuestros jóvenes y acompañar a sus familias </h1>
-                <h5 class="h1-responsive font-weight-bold mt-sm-5">Dirección :Mz 51 Pc 07 
-                  B 444 viv 1
-                  3514 - Fontana
-                  Ciudad: Fontana - Chaco
-                  Celular: 3624149053
-                  Email:yanimendez00017@gmail.com
-                  Fecha de inicio de actividades: 2 de septiembre de 2020
-                   </h5>
+                
+                
             
               </div>
             
@@ -44,44 +54,99 @@
         </div>
         <!-- Mask & flexbox options-->
       </div>
-    </main>
+    </section>
+    <section class="text-center" id="contactos">
+      <h1>Contactos</h1>
+      <div class="container">
+        <ul>
+          <li>Dirección :Mz 51 Pc 07</li>
+          <li>B 444 viv 1</li>
+          <li>3514 - Fontana</li>
+          <li>Ciudad: Fontana - Chaco</li>
+          <li>Celular: 3624149053</li>
+          <li>Email:yanimendez00017@gmail.com</li>
+          <li>Fecha de inicio de actividades: 2 de septiembre de 2020</li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <section data-bs-version="5.1" class="features15 cid-tf6qh5w7PQ" id="features16-u">
+
     
-      
-    </div>
-    <!-- Left -->
 
-    <!-- Right -->
-    <div>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-github"></i>
-      </a>
+    
+    
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg">
+                    <div class="text-wrapper">
+                        <h6 class="card-title mbr-fonts-style display-2"><strong>Misión</strong></h6>
+                        <p class="mbr-text mbr-fonts-style mb-4 display-7">-	Fomentar el desarrollo de la educación , de la salud y del bienestar social. Logrando el mejoramiento de la calidad de vida.
+<br>-	Estimular la participación civica y solidaria. Crear ámbitos de integración y recreación.
+<br>-	Promover la dignidad humana en toda su dimensión ética y cultural, particularmente la igualdad efectiva de oportunidades entre el hombre y la mujer y los derechos de la infancia.&nbsp;<br></p>
+                        
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="image-wrapper">
+                        <img src="{% static 'assets/images/cambio-1160x820.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
+</section>
+      <h1 class="text-center">Información institucional</h1>
+      <h3>Autoridades:</h3>
+      <ul>
+        <li>Presidente: Rivero Diego</li>
+        <li>Tesorera: Morante Romina</li>
+        <li>Secretaria: Soda Yanina</li>
+      </ul>
+      <h3>Objetivos organizacionales:</h3>
+      <ul>
+        <li>Acompañar</li>
+        <li>Contener y respaldar a nuestra comunidad</li>
+        <li>Talleres</li>
+        <li>Charlas</li>
+        <li>Capacitaciones</li>
+      </ul>
+      <section data-bs-version="5.1" class="features15 cid-tf6qh5w7PQ" id="features16-u">
 
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-3">
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4">
-           
+    
+
+    
+    
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="row align-items-center">
+                    <div class="col-12 col-lg">
+                        <div class="text-wrapper">
+                            <h6 class="card-title mbr-fonts-style display-2"><strong>Misión / Visión:</strong></h6>
+                            <p class="mbr-text mbr-fonts-style mb-4 display-7">-	Llegar a proporcionar fuentes de trabajo con ingresos sustentables a los nuestros a través de gestiones y trabajo en conjunto con entidades gubernamentales.
+    <br>-	Alcance: Organización de alcance nacional e internacional.                            
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="image-wrapper">
+                            <img src="{% static 'assets/images/cambio-1160x820.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+    <footer>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=100070747194751&mibextid=ZbWKwL" taget="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a id="whatsapp" href="https://wa.me/543624149053?text=Hola!%20soy:" target="_blank">
+          <img src="http://s2.accesoperu.com/logos/btn_whatsapp.png" alt="">
+      </a>
+      </div>
+    </footer>
+  </body>
+</html>
