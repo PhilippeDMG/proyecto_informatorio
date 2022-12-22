@@ -3,7 +3,7 @@ GRUPO: 2
 
 INTEGRANTES: 
     Martinez Manuel 
-    Maurel Damián
+    Maurel Philippe
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 Instalar librerías necesarias con el siguiente  comando: 
