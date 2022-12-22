@@ -2,13 +2,8 @@
 GRUPO: 2
 
 INTEGRANTES: 
-    Aranda Celeste
-    Brunelli Antonella
-    Ledesma Ramiro
     Martinez Manuel 
-    Maurel Damián
-    Mesa Ruth
-    Peralta Federico
+    Maurel Philippe
 
 ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬
 Instalar librerías necesarias con el siguiente  comando: 
